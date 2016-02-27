@@ -1,0 +1,24 @@
+{
+  "name": "ng-bootstrap",
+  "version": "1.0.0",
+  "description": "SPA to bootstrap any idea.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-app" : "npm run start-http-server",
+    "start-http-server": "http-server -op 8383"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surajhell88/ng-bootstrap.git"
+  },
+  "author": "ININ JS TEAM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/surajhell88/ng-bootstrap/issues"
+  },
+  "homepage": "https://github.com/surajhell88/ng-bootstrap#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}

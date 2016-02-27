@@ -1,0 +1,22 @@
+{
+  "name": "ng-bootstrap",
+  "description": "SPA to bootstrap any idea.",
+  "main": "index.js",
+  "authors": [
+    "ININ JS TEAM"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/surajhell88/ng-bootstrap",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.5.0"
+  }
+}
