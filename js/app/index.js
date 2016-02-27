@@ -1,8 +1,8 @@
 //my/shirt.js now does setup work
 //before returning its module definition.
-define(['angular', 'angular-route'], function (ng, ngRoute) {
+define(['angular', 'angular-route', 'appControllerModule', 'appDirectivesModule', 'appServicesModule', 'appConstantModule'], function (ng, ngRoute, appControllerModule, appDirectivesModule, appServicesModule, appConstantModule) {
 	//Do setup work here
-	var app = ng.module('app', ['ngRoute']);
+	var app = ng.module('app', ['ngRoute', 'appControllerModule', 'appDirectivesModule', 'appServicesModule', 'appConstantModule']);
 	app.start = function () {
 		ng.bootstrap(document, ['app']);
 	};

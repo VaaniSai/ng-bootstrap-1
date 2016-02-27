@@ -8,8 +8,15 @@ require.config({
 		}
 	},
 	paths: {
+		/*Aliases for Libs*/
 		'angular': '../../bower_components/angular/angular.min',
-		'angular-route': '../../bower_components/angular-route/angular-route.min'
+		'angular-route': '../../bower_components/angular-route/angular-route.min',
+
+		/*Aliases for Custom Scripts*/
+		'appControllerModule': 'common/controllers/app-controller',
+		'appDirectivesModule': 'common/directives/app-directives',
+		'appServicesModule': 'common/services/app-services',
+		'appConstantModule': 'common/constants/app-constants'
 	}
 });
 
