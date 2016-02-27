@@ -6,11 +6,37 @@ define(['angular', 'angular-route', 'appControllerModule', 'appDirectivesModule'
 	app.start = function () {
 		ng.bootstrap(document, ['app']);
 	};
-	app.config(['$routeProvider', function ($routeProvider) {
+	app.register = {};
+	app.getController = function (fileAlias, resolveFnName) {
+		return ['$injector', function ($injector) {
+			var $q = $injector.get('$q'),
+			      defer = $q.defer();
+			require([fileAlias], function (ctrlHash) {
+				ctrlHash[resolveFnName]($injector).then(function (data) {
+					defer.resolve(data);
+				});
+			});
+			return defer.promise;
+		}];
+	}
+	app.config(['$routeProvider', '$controllerProvider', '$compileProvider', function ($routeProvider, $controllerProvider, $compileProvider) {
+		app.register['controller'] = $controllerProvider.register;
+		app.register['directive'] = $compileProvider.directive;
+		/* 
+			To use following inject $provide & $filterProvider
+			app.register['factory'] = $provide.factory;
+			app.register['provider'] = $provide.provider;
+			app.register['filter'] = $filterProvider.register;
+			app.register['service'] = $provide.service;
+		*/
 		$routeProvider.when('/', {
 			templateUrl: '../../partials/home/index.html'
 		}).when('/dashboard', {
-			templateUrl: '../../partials/dashboard/index.html'
+			templateUrl: '../../partials/dashboard/index.html',
+			controller: 'dashboardController',
+			resolve: {
+				registerController: app.getController('dashboardCtrlModule', 'resolver'),
+			}
 		}).when('/settings', {
 			templateUrl: '../../partials/settings/index.html'
 		});

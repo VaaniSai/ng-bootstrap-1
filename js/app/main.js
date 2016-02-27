@@ -16,7 +16,8 @@ require.config({
 		'appControllerModule': 'common/controllers/app-controller',
 		'appDirectivesModule': 'common/directives/app-directives',
 		'appServicesModule': 'common/services/app-services',
-		'appConstantModule': 'common/constants/app-constants'
+		'appConstantModule': 'common/constants/app-constants',
+		'dashboardCtrlModule': 'dashboard/dummy-controller'
 	}
 });
 
