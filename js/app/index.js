@@ -7,14 +7,21 @@ define(['angular', 'angular-route', 'appControllerModule', 'appDirectivesModule'
 		ng.bootstrap(document, ['app']);
 	};
 	app.register = {};
+	/*
+		Utility to fetch file and call the 
+	*/
 	app.getController = function (fileAlias, resolveFnName) {
 		return ['$injector', function ($injector) {
 			var $q = $injector.get('$q'),
 			      defer = $q.defer();
 			require([fileAlias], function (ctrlHash) {
-				ctrlHash[resolveFnName]($injector).then(function (data) {
-					defer.resolve(data);
-				});
+				if (resolveFnName) {
+					ctrlHash[resolveFnName]($injector).then(function (data) {
+						defer.resolve(data);
+					});
+				} else {
+					defer.resolve();
+				}
 			});
 			return defer.promise;
 		}];
