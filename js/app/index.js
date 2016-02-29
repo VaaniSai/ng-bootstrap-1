@@ -8,7 +8,7 @@ define(['angular', 'angular-route', 'appControllerModule', 'appDirectivesModule'
 	};
 	app.register = {};
 	/*
-		Utility to fetch file and call the 
+		Utility to fetch file and call the resolve function if it's there
 	*/
 	app.getController = function (fileAlias, resolveFnName) {
 		return ['$injector', function ($injector) {
@@ -37,7 +37,11 @@ define(['angular', 'angular-route', 'appControllerModule', 'appDirectivesModule'
 			app.register['service'] = $provide.service;
 		*/
 		$routeProvider.when('/', {
-			templateUrl: '../../partials/home/index.html'
+			templateUrl: '../../partials/home/index.html',
+			controller: 'homeController',
+			resolve: {
+				registerController: app.getController('homeCtrlModule', 'resolver'),
+			}
 		}).when('/dashboard', {
 			templateUrl: '../../partials/dashboard/index.html',
 			controller: 'dashboardController',
@@ -45,7 +49,11 @@ define(['angular', 'angular-route', 'appControllerModule', 'appDirectivesModule'
 				registerController: app.getController('dashboardCtrlModule', 'resolver'),
 			}
 		}).when('/settings', {
-			templateUrl: '../../partials/settings/index.html'
+			templateUrl: '../../partials/settings/index.html',
+			controller: 'settingsController',
+			resolve: {
+				registerController: app.getController('settingsCtrlModule', 'resolver'),
+			}
 		});
 	}]);
 	return app;
