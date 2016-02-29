@@ -13,7 +13,9 @@ define(['index'], function (app) {
 	settingsCtrlModule.resolver = function ($injector) {
 		var $q = $injector.get('$q'),
 		      defer = $q.defer();
-		defer.resolve({});
+		window.setTimeout(function () {
+			defer.resolve({});
+		}, 1000);
 		return defer.promise;
 	}
 	return settingsCtrlModule;
