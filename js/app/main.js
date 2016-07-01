@@ -1,7 +1,13 @@
 require.config({
 	shim: {
 		'angular': {
-            		exports: 'angular'
+            			exports: 'angular'
+		},
+		'jsapi-v1': {
+			exports: 'ININ'
+		},
+		'google-maps-api': {
+			exports: 'googleMapsApi'
 		},
 		'angular-route': {
 			deps: ['angular']
@@ -11,6 +17,8 @@ require.config({
 		/*Aliases for Libs*/
 		'angular': '../../bower_components/angular/angular.min',
 		'angular-route': '../../bower_components/angular-route/angular-route.min',
+		'jsapi-v1': '../lib/jsapi-v1',
+		'google-maps-api': '../lib/google-maps-api',
 
 		/*Aliases for Custom Scripts*/
 		'appControllerModule': 'common/controllers/app-controller',
