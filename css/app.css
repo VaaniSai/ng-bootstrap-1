@@ -226,18 +226,3 @@ body {
     transform: rotate(360deg);
   }
 }
-
-/*conversation box*/
-.conversation-box{
-  width: 290px;
-  height: 425px;
-  border: 1px solid #ccc;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-.conversation-box .heading{
-  padding: 5px;
-  font-size: 14px;
-  background: #ddd;
-}
